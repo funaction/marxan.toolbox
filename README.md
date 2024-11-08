@@ -18,7 +18,7 @@ https://github.com/josesalgr/riverPlanningTools/tree/v0.1
 ## Usage
 please consult the corresponding documentation which can be achived by typing the indicated R command
 
-### create the 
+### method to create
 - planning unit input file "pu.csv"
   > ?marxan.toolbox::crt_pu()<br/>
 - planning unit vs conservation feature input file "puvspr.csv"
@@ -27,7 +27,7 @@ please consult the corresponding documentation which can be achived by typing th
   > ?marxan.toolbox::crt_spec()<br/>
 - boundary length file "bound.csv"
   > ?marxan.toolbox::crt_bound()<br/>
-- calibrattion of the BLM parameter value
+- calibration of the BLM parameter value
   > ?marxan.toolbox::calibrate_blm()<br/>
 - get the best solution found by the marxan optimization algorithm
   > ?marxan.toolbox::get_best_solution()<br/>
