@@ -20,7 +20,7 @@ please consult the corresponding documentation which can be achived by typing th
 
 ### method to create
 - planning unit input file "pu.csv"
-  > ?marxan.toolbox::crt_pu()<br/>
+  >?marxan.toolbox::crt_pu()<br/>
 - planning unit vs conservation feature input file "puvspr.csv"
   > ?marxan.toolbox::crt_puvspr()<br/>
 - conservation feature input file "spec.csv"
