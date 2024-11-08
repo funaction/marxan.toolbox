@@ -16,7 +16,7 @@ pkg link:<br/>
 https://github.com/josesalgr/riverPlanningTools/tree/v0.1
 
 ## Usage
-please consult the corresponding documentation which can be achived by typing the indicated R command followed by the character ">"
+please consult the corresponding documentation which can be achived by typing the indicated R command
 
 ### create the 
 - planning unit input file "pu.csv"
