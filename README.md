@@ -12,8 +12,7 @@ type on R console:<br>
 
 ## Dependencies
 "googledrive"<br>
-"riverPlanningTools" by José Salgado-Rojas<br>
-pkg link:<br>
+"riverPlanningTools" by José Salgado-Rojas link:
 https://github.com/josesalgr/riverPlanningTools/tree/v0.1<br>
 "scales"<br>
 "terra"<br>
