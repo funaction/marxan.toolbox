@@ -11,9 +11,12 @@ type on R console:<br>
 > devtools::install_github("danielrm84/marxan.toolbox")
 
 ## Dependencies
+"googledrive"
 "riverPlanningTools" by José Salgado-Rojas<br>
 pkg link:<br>
 https://github.com/josesalgr/riverPlanningTools/tree/v0.1
+"scales"
+"terra"
 
 ## Usage
 please consult the corresponding documentation which can be achived by typing the indicated R command
