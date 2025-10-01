@@ -14,6 +14,7 @@ delineate_basin(
   lakes = NULL,
   basin = NULL,
   outfile = FALSE,
+  download_dir = tempdir(),
   aggregate_polygons = TRUE
 )
 }
@@ -47,10 +48,15 @@ Default = FALSE}
 than lev10 which is the one used by the package
 Default = FALSE}
 
-\item{outfile}{(character) filename where to write the
+\item{outfile}{(Char) filename where to write the
 output delineated basin as SpatVector (make sure that
 filename has the appropriate extension, e.g., *.gpkg)
 Default = FALSE}
+
+\item{download_dir}{(Char) path directory where to store
+downloaded resources. This will be used to get missing
+GIS data layers from a repository
+Default = a temporary directory}
 
 \item{aggregate_polygons}{(boolean) if TRUE, a spatial
 vector with a single polygon describing the basin area of

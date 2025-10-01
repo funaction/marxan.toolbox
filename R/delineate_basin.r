@@ -37,10 +37,15 @@
 #' than lev10 which is the one used by the package
 #' Default = FALSE
 #'
-#' @param outfile (character) filename where to write the 
+#' @param outfile (Char) filename where to write the 
 #' output delineated basin as SpatVector (make sure that
 #' filename has the appropriate extension, e.g., *.gpkg)
 #' Default = FALSE
+#'
+#' @param download_dir (Char) path directory where to store
+#' downloaded resources. This will be used to get missing
+#' GIS data layers from a repository
+#' Default = a temporary directory
 #'
 #' @param aggregate_polygons (boolean) if TRUE, a spatial 
 #' vector with a single polygon describing the basin area of
@@ -60,6 +65,7 @@ delineate_basin <- function(
         lakes = NULL,
         basin = NULL,
         outfile = FALSE,
+        download_dir = tempdir(),
         aggregate_polygons = TRUE
         )
 {
@@ -76,7 +82,18 @@ delineate_basin <- function(
         # of interest
         message("preparing data ...")
         if(is.null(mask)){
-                map <- marxan.toolbox:::mask
+                maskfile <- file.path(download_dir,"westEU.gpkg")
+                if(file.exists(maskfile))
+                {
+                        map <- terra::vect(maskfile)
+                } else {
+                        map <- terra::vect(
+                                get_gdrive_resource(
+                                        marxan.toolbox:::masklink,
+                                        download_dir
+                                )
+                        )
+                }
         } else {
                 map <- mask
         }
@@ -86,20 +103,69 @@ delineate_basin <- function(
         if(!is.null(country) && is.null(mask) && is.null(extent))
                 map <- map[tolower(map$name) %in% tolower(country)]
 
-        if(is.null(sites))
-                sites <- marxan.toolbox:::sites
+        if(is.null(sites)){
+                sitesfile <- file.path(download_dir,"funaction_sites.gpkg")
+                if(file.exists(sitesfile))
+                {
+                        sites <- terra::vect(sitesfile)
+                } else {
+                        sites <- terra::vect(
+                                get_gdrive_resource(
+                                        marxan.toolbox:::siteslink, 
+                                        download_dir
+                                )
+                        )
+                }
+                
+        }
+                
         sites <- terra::crop(sites, map)
 
-        if(is.null(rivers))
-                rivers <- marxan.toolbox:::rivers
+        if(is.null(rivers)){
+                riversfile <- file.path(download_dir,"riversEU.gpkg")
+                if(file.exists(riversfile)){
+                        rivers <- terra::vect(riversfile)
+                } else {
+                        rivers <- terra::vect(
+                                get_gdrive_resource(
+                                        marxan.toolbox:::riverslink, 
+                                        download_dir
+                                )
+                        )
+                }
+        }
+                
         rivers <- terra::crop(rivers, map)
 
-        if(is.null(lakes))
-                lakes <- marxan.toolbox:::lakes
+        if(is.null(lakes)){
+                lakesfile <- file.path(download_dir,"lakesEU.gpkg")
+                if(file.exists(lakesfile)){
+                        lakes <- terra::vect(lakesfile)
+                } else {
+                        lakes <- terra::vect(
+                                get_gdrive_resource(
+                                        marxan.toolbox:::lakeslink, 
+                                        download_dir
+                                )
+                        )
+                }
+        }        
         lakes <- terra::crop(lakes, map)
                 
-        if(is.null(basin))
-                basin <- marxan.toolbox:::basin
+        if(is.null(basin)){
+                basinfile <- file.path(download_dir,"basinEU.gpkg")
+                if(file.exists(basinfile))
+                {
+                        basin <- terra::vect(basinfile)
+                } else {
+                        basin <- terra::vect(
+                                get_gdrive_resource(
+                                        marxan.toolbox:::basinlink, 
+                                        download_dir
+                                )
+                        )
+                }
+        }       
         basin <- terra::crop(basin, map)
         
         message("done")
@@ -182,4 +248,50 @@ delineate_basin <- function(
         message("job sucessful")
         # return selected basin
         return(output)
+}
+
+
+#'#############################################################
+#'		     	    GET GDRIVE RESOURCE		
+#'
+#' DESCRIPTION
+#' (internal) download google drive file by id and returns the
+#' unzipped filename
+#'
+#' PARAMETERS
+#' @param id (Char) google drive file identification
+#' REQUIRED
+#'
+#' @param temp_dir (Char) path directory where to store 
+#' downloaded resources
+#' Default = FALSE i.e., a temporary directory
+#' 
+#' OUTPUT
+#' @return downdloaded filename
+#'
+get_gdrive_resource <- function(id, temp_dir = FALSE){
+
+        # create temporary file name and directory
+        temp_file <- tempfile(fileext = ".zip")
+        if(temp_dir == FALSE)
+                temp_dir <- tempdir() 
+        
+        # download requested drive resource id
+        googledrive::drive_deauth()
+        gfile <- googledrive::drive_get(googledrive::as_id(id))
+        googledrive::drive_download(
+                file = gfile, 
+                path = temp_file,
+                overwrite = TRUE
+        )
+
+        # unzip file
+        fname <- unzip(
+                zipfile = temp_file, 
+                exdir = temp_dir
+        )
+
+        # return downloaded file
+        return( fname )
+
 }
