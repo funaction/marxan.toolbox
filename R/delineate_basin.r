@@ -200,7 +200,7 @@ delineate_basin <- function(
         # interactive procedure
         i <- 1 # loop control
         cancel <- FALSE
-        while(i < 20 && cancel == FALSE){
+        while(i < 50 && cancel == FALSE){
                 
                 selection <- terra::click(
                         x = basin, 
