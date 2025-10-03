@@ -100,7 +100,7 @@ delineate_basin <- function(
          
         if(!is.null(extent))
                 map <- terra::crop(map, extent)
-        if(!is.null(country) && is.null(mask) && is.null(extent))
+        if(!is.null(country) && is.null(extent))
                 map <- map[tolower(map$name) %in% tolower(country)]
 
         if(is.null(sites)){
