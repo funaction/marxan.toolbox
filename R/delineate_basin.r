@@ -272,7 +272,7 @@ delineate_basin <- function(
                         overwrite = TRUE
                 )
 
-        message("job sucessful")
+        message("job successful")
         # return selected basin
         return(output)
 }
