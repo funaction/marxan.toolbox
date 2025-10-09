@@ -98,9 +98,9 @@ delineate_basin <- function(
                 map <- mask
         }
          
-        if(!is.null(extent))
+        if(!is.null(extent) && !is.logical(extent))
                 map <- terra::crop(map, extent)
-        if(!is.null(country) && is.null(extent))
+        if(!is.null(country) && (is.null(extent) || is.logical(extent)))
                 map <- map[tolower(map$name) %in% tolower(country)]
 
         if(is.null(sites)){
@@ -117,6 +117,32 @@ delineate_basin <- function(
                         )
                 }
                 
+        }
+
+        # If requested, ie., extent = TRUE, enable the user to select the 
+        # extent of interest directly from the map with the sampling sites
+        if(!is.null(extent) && is.logical(extent) && extent == TRUE){
+                terra::plot(
+                        map, 
+                        main = "select extent of interest (two clicks)"
+                )
+                sitecolor <- "orange"
+                terra::plot(
+                        sites, 
+                        pch = 21, 
+                        cex = 1, 
+                        bg = sitecolor, 
+                        add = TRUE
+                )
+                extent = terra::draw(
+                        x = "extent", 
+                        col = "darkseagreen4", 
+                        lwd = 2, 
+                        id = FALSE, # show numeric id on map?
+                        n = 2, # number of clicks
+                        xpd = FALSE # drawing outside plot area forbidden
+                )
+                map <- terra::crop(map, extent)
         }
                 
         sites <- terra::crop(sites, map)
@@ -187,7 +213,8 @@ delineate_basin <- function(
         terra::plot(basin, border = basinborder, col = basincolor, add = TRUE)
         terra::plot(rivers, col = rivercolor, add = TRUE)
         terra::plot(
-                lakes, 
+                lakes,
+                main = "selection of study region", 
                 border = lakeborder, 
                 col = scales::alpha(
                         colour = lakecolor, 
@@ -200,7 +227,7 @@ delineate_basin <- function(
         # interactive procedure
         i <- 1 # loop control
         cancel <- FALSE
-        while(i < 50 && cancel == FALSE){
+        while(i < 100 && cancel == FALSE){
                 
                 selection <- terra::click(
                         x = basin, 
