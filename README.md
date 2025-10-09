@@ -36,3 +36,5 @@ please consult the corresponding documentation which can be achived by typing th
 - run marxan from R environment
   > ?marxan.toolbox::run_marxan()<br>
 
+### delineate basin
+  > ?marxan.toolbox::delineate_basin()<br>
