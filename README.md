@@ -6,7 +6,7 @@ email:   danielrm84@gmail.com<br>
 updated: 20251009<br> 
 
 ## Installation
-(requires devtools)<br>
+(can be installed via remotes or devtools)<br>
 type on R console:<br>
 > devtools::install_github("danielrm84/marxan.toolbox")
 
