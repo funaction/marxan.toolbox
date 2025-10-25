@@ -16,8 +16,8 @@ Imports:
     scales,
     terra
 Suggests:
-    riverPlanningTools
-    rivnet
+    riverPlanningTools,
+    rivnet,
     elevatr
 Depends: 
     R (>= 3.5)
