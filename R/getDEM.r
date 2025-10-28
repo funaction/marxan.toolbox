@@ -32,7 +32,7 @@
 #' interest by drawing it directly on the map. The default value
 #' is set to TRUE, because depending on the resolution the
 #' resulting DEM could require a large disk space
-#' DEFAULT = TRUE 
+#' DEFAULT = TRUE
 #'
 #' @param ... further arguments passed to 
 #' elevatr::get_elev_raster
@@ -91,7 +91,12 @@ getDEM <- function(
     message("done")
 
     # convert to spatraster
-    terra::rast(dem)
+    dem <- terra::rast(dem)
+    info_crs <- terra::crs(dem, describe = T)[,1]
+    if(is.na(info_crs) || 
+    grepl("unknown|undefined|na", tolower(info_crs))){
+        terra::crs(dem) <- terra::crs(raster_template)
+    }
     
     # adjust names
     names(dem) <- "altitude"
