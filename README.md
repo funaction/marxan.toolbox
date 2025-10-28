@@ -2,13 +2,13 @@
 utiliy functions to prepare marxan input data, calibrate the BLM input parameter, run marxan from R environment and get the best solution
 
 author:  Daniel Romero Mujalli<br>
-email:   danielrm84@gmail.com<br>
-updated: 20251025<br> 
+email:   daniel.romero@supsi.ch<br>
+updated: 20251028<br> 
 
 ## Installation
 (can be installed via remotes or devtools)<br>
 type on R console:<br>
-> devtools::install_github("danielrm84/marxan.toolbox")
+> devtools::install_github("funaction/marxan.toolbox")
 
 ## Dependencies
 "googledrive"<br>
