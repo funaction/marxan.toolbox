@@ -16,6 +16,8 @@ type on R console:<br>
 https://github.com/josesalgr/riverPlanningTools/tree/v0.1<br>
 "scales"<br>
 "terra"<br>
+"rivnet"<br>
+"elevatr"<br>
 
 ## Usage
 please consult the corresponding documentation which can be achived by typing the indicated R command
