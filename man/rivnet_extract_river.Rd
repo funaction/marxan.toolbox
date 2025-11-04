@@ -11,6 +11,7 @@ rivnet_extract_river(
   locations = NULL,
   country_map = NULL,
   reference_river = NULL,
+  crt_outlets_log = FALSE,
   ...
 )
 }
@@ -46,6 +47,10 @@ DEFAULT NULL}
 
 \item{reference_river}{(spatVector) optional. To help
 manually setting the outlets using a reference river layer}
+
+\item{crt_outlets_log}{(boolean) whether to write the selected
+outlets to a file
+DEFAULT FALSE}
 
 \item{...}{further arguments passed to
 rivnet::extract_river

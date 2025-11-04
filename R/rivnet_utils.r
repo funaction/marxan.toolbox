@@ -39,6 +39,10 @@
 #' @param reference_river (spatVector) optional. To help
 #' manually setting the outlets using a reference river layer
 #'
+#' @param crt_outlets_log (boolean) whether to write the selected
+#' outlets to a file
+#' DEFAULT FALSE
+#'
 #' @param ... further arguments passed to 
 #' rivnet::extract_river
 #' 
@@ -53,6 +57,7 @@ rivnet_extract_river <- function(
     locations = NULL,
     country_map = NULL,
     reference_river = NULL,
+    crt_outlets_log = FALSE,
     ...
 ){
     if(is.vector(outlet) && length(outlet) == 1)
@@ -69,6 +74,18 @@ rivnet_extract_river <- function(
         DEM = dem_fname,
         ...
     )
+    # create outlets log file
+    if(crt_outlets_log){
+        outlet <- matrix(outlet, ncol = 2)
+        outlet <- data.frame(x = outlet[,1], y = outlet[,2])
+        write.table(
+            x = outlet,
+            file = "outlets_log.csv",
+            sep = ",",
+            row.names = FALSE,
+            quote = FALSE
+        )
+    }
     # return river object
     return(rivnet_result)
 }
