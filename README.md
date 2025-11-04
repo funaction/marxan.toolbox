@@ -3,7 +3,7 @@ utiliy functions to prepare marxan input data, calibrate the BLM input parameter
 
 author:  Daniel Romero Mujalli<br>
 email:   danielrm84@gmail.com<br>
-updated: 20251028<br> 
+updated: 20251104<br> 
 
 ## Installation
 (can be installed via remotes or devtools)<br>
