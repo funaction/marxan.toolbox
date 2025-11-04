@@ -77,7 +77,8 @@ rivnet_extract_river <- function(
     # create outlets log file
     if(crt_outlets_log){
         outlet <- matrix(outlet, ncol = 2)
-        outlet <- data.frame(x = outlet[,1], y = outlet[,2])
+        outlet <- data.frame(outlet)
+        names(outlet) <- c("x","y")
         write.table(
             x = outlet,
             file = "outlets_log.csv",
