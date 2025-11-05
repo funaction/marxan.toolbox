@@ -1,9 +1,20 @@
 # marxan.toolbox
-utiliy functions to prepare marxan input data, calibrate the BLM input parameter, run marxan from R environment and get the best solution
+utiliy functions to perform conservation planning using the software [Marxan](https://marxansolutions.org/) from the R environment. 
+The package is well suit for planning exercises on sea, land and freshwater systems. 
+the package was developed with a mindset of conservation planning of freshwater biodiversity. 
+Therefore, the package includes methods for: 
+1. obtaining a Digital Elevation Model DEM for the extent of interest
+2. extraction of the associated river network
+3. delineation of sub-basin polygons
+4. delineation of the basin area of interest (modelling region)
+5. training of habitat distribution models and their spatial projections onto the modelling region
+6. conservation planning via Marxan. This involves the preparation of marxan input data, calibration of the BLM input parameter, run of marxan from R environment and a method to get the best solution.
 
 author:  Daniel Romero Mujalli<br>
 email:   daniel.romero@supsi.ch<br>
 updated: 20251104<br> 
+
+This package was developed in the context of the Biodiversa+ project FUNACTION
 
 ## Installation
 (can be installed via remotes or devtools)<br>
@@ -12,8 +23,7 @@ type on R console:<br>
 
 ## Dependencies
 "googledrive"<br>
-"riverPlanningTools" by José Salgado-Rojas link:
-https://github.com/josesalgr/riverPlanningTools/tree/v0.1<br>
+["riverPlanningTools"](https://github.com/josesalgr/riverPlanningTools/tree/v0.1) by José Salgado-Rojas<br>
 "scales"<br>
 "terra"<br>
 "rivnet"<br>
@@ -21,6 +31,18 @@ https://github.com/josesalgr/riverPlanningTools/tree/v0.1<br>
 
 ## Usage
 please consult the corresponding documentation which can be achived by typing the indicated R command
+
+### get digital elevation model
+  > ?marxan.toolbox::getDEM()<br>
+
+### extract river network
+  > ?marxan.toolbox::rivnet_extract_river()<br>
+
+### delineate sub-basin polygons
+  > ?marxan.toolbox::get_rivnet_SC()<br>
+
+### delineate basin area (modelling region)
+  > ?marxan.toolbox::delineate_basin()<br>
 
 ### Marxan: method for
 - planning unit input file "pu.csv"
@@ -38,8 +60,6 @@ please consult the corresponding documentation which can be achived by typing th
 - run marxan from R environment
   > ?marxan.toolbox::run_marxan()<br>
 
-### delineate basin
-  > ?marxan.toolbox::delineate_basin()<br>
 
-### get digital elevation model
-  > ?marxan.toolbox::getDEM()<br>
+
+
