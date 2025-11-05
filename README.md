@@ -45,19 +45,19 @@ please consult the corresponding documentation which can be achived by typing th
   > ?marxan.toolbox::delineate_basin()<br>
 
 ### Marxan conservation planning
-planning unit input file "pu.csv"<br>
+- planning unit input file "pu.csv"
   > ?marxan.toolbox::crt_pu()<br>
-planning unit vs conservation feature input file "puvspr.csv"<br>
+- planning unit vs conservation feature input file "puvspr.csv"
   > ?marxan.toolbox::crt_puvspr()<br>
-conservation feature input file "spec.csv"<br>
+- conservation feature input file "spec.csv"
   > ?marxan.toolbox::crt_spec()<br>
-boundary length file "bound.csv"<br>
+- boundary length file "bound.csv"
   > ?marxan.toolbox::crt_bound()<br>
-calibration of the BLM parameter value<br>
+- calibration of the BLM parameter value
   > ?marxan.toolbox::calibrate_blm()<br>
-get the best solution found by the marxan optimization algorithm<br>
+- get the best solution found by the marxan optimization algorithm
   > ?marxan.toolbox::get_best_solution()<br>
-run marxan from R environment<br>
+- run marxan from R environment
   > ?marxan.toolbox::run_marxan()<br>
 
 
