@@ -1,4 +1,4 @@
-# marxan.toolbox ![pkg logo](/logo/planning.png)
+# marxan.toolbox <img src = "/logo/planning.png" width = 7>
 utiliy functions to perform conservation planning using the software [Marxan](https://marxansolutions.org/) from the R environment. 
 The package is well suit for planning exercises on sea, land and freshwater systems. 
 the package was developed with a mindset of conservation planning of freshwater biodiversity. 
