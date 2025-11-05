@@ -8,7 +8,7 @@ updated: 20251104<br>
 ## Installation
 (can be installed via remotes or devtools)<br>
 type on R console:<br>
-> devtools::install_github("danielrm84/marxan.toolbox")
+> remotes::install_github("danielrm84/marxan.toolbox")
 
 ## Dependencies
 "googledrive"<br>
@@ -22,7 +22,7 @@ https://github.com/josesalgr/riverPlanningTools/tree/v0.1<br>
 ## Usage
 please consult the corresponding documentation which can be achived by typing the indicated R command
 
-### method for
+### Marxan: method for
 - planning unit input file "pu.csv"
   > ?marxan.toolbox::crt_pu()<br>
 - planning unit vs conservation feature input file "puvspr.csv"
@@ -40,3 +40,6 @@ please consult the corresponding documentation which can be achived by typing th
 
 ### delineate basin
   > ?marxan.toolbox::delineate_basin()<br>
+
+### get digital elevation model
+  > ?marxan.toolbox::getDEM()<br>
