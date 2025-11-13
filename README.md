@@ -7,7 +7,7 @@ Therefore, the package includes methods for:
 2. extraction of the associated river network
 3. delineation of sub-basin polygons
 4. delineation of the basin area of interest (modelling region)
-5. training of habitat distribution models and their spatial projections onto the modelling region
+5. training of species / habitat suitability distribution models and their spatial projections onto the modelling region
 6. conservation planning via Marxan. This involves the preparation of marxan input data, calibration of the BLM input parameter, run of marxan from R environment and a method to get the best solution.
 
 author:  Daniel Romero Mujalli<br>
