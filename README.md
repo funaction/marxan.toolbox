@@ -22,7 +22,6 @@ type on R console:<br>
 > remotes::install_github("danielrm84/marxan.toolbox")
 
 ## Dependencies
-"googledrive"<br>
 ["riverPlanningTools"](https://github.com/josesalgr/riverPlanningTools/tree/v0.1) by José Salgado-Rojas<br>
 "scales"<br>
 "terra"<br>
