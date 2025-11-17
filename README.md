@@ -1,7 +1,7 @@
 # <img src = "/logo/planning.png" width = 128> marxan.toolbox
+## Work in progress<br>
 utiliy functions to perform conservation planning using the software [Marxan](https://marxansolutions.org/) from the R environment. 
-The package is well suit for planning exercises on sea, land and freshwater systems. 
-the package was developed with a mindset of conservation planning of freshwater biodiversity. 
+The package is designed and intented for conservation planning exercises on freshwater systems. 
 Therefore, the package includes methods for: 
 1. obtaining a Digital Elevation Model DEM for the extent of interest
 2. extraction of the associated river network
@@ -10,10 +10,11 @@ Therefore, the package includes methods for:
 5. training of species / habitat suitability distribution models and their spatial projections onto the modelling region
 6. conservation planning via Marxan. This involves the preparation of marxan input data, calibration of the BLM input parameter, run of marxan from R environment and a method to get the best solution.
 
-author:  Daniel Romero Mujalli<br>
-email:   daniel.romero@supsi.ch<br>
+author:  Daniel Romero Mujalli, Jose Ignacio Salgado Rojas, Virgilio Hermoso<br>
+maintainer:   Daniel Romero-Mujalli <daniel.romero@supsi.ch><br>
 updated: 20251104<br> 
 
+Acknowledgements
 This package was developed in the context of the Biodiversa+ project FUNACTION
 
 ## Installation
