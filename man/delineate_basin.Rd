@@ -3,22 +3,34 @@
 \name{delineate_basin}
 \alias{delineate_basin}
 \title{#############################################################
-DELINEATE BASIN}
+DELINEATE BASIN	DEPRECATED}
 \usage{
 delineate_basin(
+  reference_layer = NULL,
+  polygons_ids = "HYBAS_ID",
   country = NULL,
   extent = NULL,
   mask = NULL,
   sites = NULL,
   rivers = NULL,
   lakes = NULL,
-  basin = NULL,
   outfile = FALSE,
   download_dir = tempdir(),
   aggregate_polygons = TRUE
 )
 }
 \arguments{
+\item{reference_layer}{(spatial vector) Reference layer
+on which to draw by clicking the subset layer area of interest.
+If not provided, a hydroshed basin of level lev10 is used
+Default = NULL}
+
+\item{polygons_ids}{(character) variable name
+identifier that contains the polygons IDs in reference_layer.
+If not provided, it takes the value used by hydrosheds to
+identify basin polygons
+Default "HYBAS_ID"}
+
 \item{country}{(Char) country name of watershed location
 Default = NULL}
 
@@ -44,10 +56,6 @@ Default = FALSE}
 instead of the hydrosheds lakes used by the package
 Default = FALSE}
 
-\item{basin}{(spatial vector) hydroshed basin of level other
-than lev10 which is the one used by the package
-Default = FALSE}
-
 \item{outfile}{(Char) filename where to write the
 output delineated basin as SpatVector (make sure that
 filename has the appropriate extension, e.g., *.gpkg)
@@ -59,21 +67,23 @@ GIS data layers from a repository
 Default = a temporary directory}
 
 \item{aggregate_polygons}{(boolean) if TRUE, a spatial
-vector with a single polygon describing the basin area of
-interest is produced
+vector with a single polygon describing the area of
+interest is returned
 Default = TRUE
 
 OUTPUT}
 }
 \value{
 SpatVector of basin area of interest
+
+DEPRECATED
 }
 \description{
 DESCRIPTION
-function to interactively delineate a basin. Returns a
-spatial vector with polygon/s representing the basin area of
-interest. If a country is not provided, then a valid extent
-or reference mask is required.
+function to interactively delineate a basin or modeling
+region of interest. Returns a spatial vector made out of the
+selected polygon/s. If a country is not provided, then a
+valid extent or reference mask is required.
 }
 \details{
 PARAMETERS

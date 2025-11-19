@@ -43,7 +43,7 @@
 #' @export
 getDEM <- function(
     raster_template,
-    zoom_level = 11,
+    zoom_level = 9,
     country_map = NULL,
     sites = NULL,
     outfile = FALSE,

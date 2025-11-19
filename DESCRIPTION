@@ -2,10 +2,10 @@ Package: marxan.toolbox
 Title: Toolbox for systematic conservation planning using marxan
 Version: 1.0
 Authors@R: 
-    person("Daniel", "Romero-Mujalli", , "danielrm84@gmail.com", role = c("aut", "cre"),
+    person("Daniel", "Romero-Mujalli", , "daniel.romero@supsi.ch", role = c("aut", "cre"),
            comment = c(ORCID = "https://orcid.org/0000-0002-7824-8706"))
 Author: Daniel Romero-Mujalli [aut, cre]
-Maintainer: Daniel Romero-Mujalli <danielrm84@gmail.com>
+Maintainer: Daniel Romero-Mujalli <daniel.romero@supsi.ch>
 Description: utiliy functions to prepare marxan input data, calibrate the BLM input parameter, run marxan from R environment and get the best solution. As well the pkg includes methods for the delineation of river network, catchment area and subcatchments polygons
 License: `use_mit_license()`
 Encoding: UTF-8
