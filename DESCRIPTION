@@ -1,23 +1,41 @@
 Package: marxan.toolbox
-Title: Toolbox for systematic conservation planning using marxan
+Title: Toolbox for systematic conservation planning in freshwater systems
 Version: 1.0
-Authors@R: 
-    person("Daniel", "Romero-Mujalli", , "daniel.romero@supsi.ch", role = c("aut", "cre"),
-           comment = c(ORCID = "https://orcid.org/0000-0002-7824-8706"))
+Authors@R: c(
+    person(
+        "Daniel", "Romero-Mujalli",
+        email = "daniel.romero@supsi.ch",
+        role = c("aut", "cre"),
+        comment = c(ORCID = "https://orcid.org/0000-0002-7824-8706")
+    ),
+    person(
+        "Jose Ignacio", "Salgado Rojas",
+        email = "jose.salgado@ctfc.cat",
+        role = c("aut")
+    ),
+    person(
+        "Virgilio", "Hermoso",
+        email = "virgilio.hermoso@gmail.com",
+        role = c("aut")
+    ),
+    person(
+        "Biodiversa+",
+        role = c("fnd")
+    )
+)
 Author: Daniel Romero-Mujalli [aut, cre]
 Maintainer: Daniel Romero-Mujalli <daniel.romero@supsi.ch>
-Description: utiliy functions to prepare marxan input data, calibrate the BLM input parameter, run marxan from R environment and get the best solution. As well the pkg includes methods for the delineation of river network, catchment area and subcatchments polygons
-License: `use_mit_license()`
+Description: the package provides methods for performing start-to-finish conservation planning on freshwater systems. This includes, methods for: obtaining a Digital Elevation Model (DEM) for the extent of interest, extraction of the associated river network, delineation of the sub-basin polygons with connectivity attributes, delineation of the modelling region, training, assessment and projection of species distribution models, conservation planning. The package can execute conservation planning exercises using the software marxan from the R environment. It also provides methods to prepare marxan input data, calibrate the BLM input parameter, and get the best marxan solution.
+License: `use_gpl3_license()`
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Imports:
-    googledrive,
     scales,
-    terra
-Suggests:
-    riverPlanningTools,
+    terra,
     rivnet,
     elevatr
+Suggests:
+    riverPlanningTools,
 Depends: 
-    R (>= 3.5)
+    R (>= 4.3.3)
